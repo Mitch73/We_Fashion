@@ -15,6 +15,35 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::factory()->count(10)->create();
+        $category = new Category;
+        $category->name = Str::random(10);
+        $category->description = Str::random(20);
+        $category->save();
+
+        $category = new Category;
+        $category->name = Str::random(10);
+        $category->description = Str::random(20);
+        $category->save();
+        
+        $category = new Category;
+        $category->name = Str::random(10);
+        $category->description = Str::random(20);
+        $category->save();
+
+        $category = new Category;
+        $category->name = Str::random(10);
+        $category->description = Str::random(20);
+        $category->save();
+
+        $category = new Category;
+        $category->name = Str::random(10);
+        $category->description = Str::random(20);
+        $category->save();
+        
+        $category = new Category;
+        $category->name = Str::random(10);
+        $category->description = Str::random(20);
+        $category->save();
+
     }
 }

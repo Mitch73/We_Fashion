@@ -22,7 +22,7 @@ class ProductSeeder extends Seeder
         $countCategory = count($categoryId);
 
         Product::factory()
-        ->count(10)
+        ->count(6)
         ->create()
         ->each(function($product) use($categoriesId, $countCategory){
             $product->category()->associate($categoriesId[random_int(0, $countCategory - 1)]);

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
@@ -19,7 +20,7 @@ class ProductSeeder extends Seeder
         // variables du contexte
         $categoriesId = Category::all('id');
 
-        $countCategory = count($categoryId);
+        $countCategory = count($categoriesId);
 
         Product::factory()
         ->count(6)

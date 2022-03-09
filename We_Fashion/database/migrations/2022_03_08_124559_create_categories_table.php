@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 100);
             $table->string('description', 100);
+            $table->enum('sex', ['homme', 'femme']);
             $table->timestamps();
         });
     }

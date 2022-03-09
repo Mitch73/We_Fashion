@@ -25,16 +25,16 @@ class ProductSeeder extends Seeder
         ->count(10)
         ->create()
         ->each(function($product) use($categoriesId, $countCategory){
-            // $rand = random_int(2, $countCategory);
+            $rand = random_int(2, $countCategory);
             // On utilise la collection = méthodes Laravel pour traiter les entités comme des tableaux 
             // shuffle mélange le tableau d'entités, slice permet de découper de manière aléatoire ici
-            // $categoriesShuffle = $categoriesId->shuffle()->slice($rand);
+            $categoriesShuffle = $categoriesId->shuffle()->slice($rand);
             // Pour la méthode attach nous devons passer des ids sous forme d'un tableau
-            // $ids = [];
-            // foreach($categoriesShuffle as $k => $array){
-            //     $ids[] = $array["id"];
-            // }
-            $product->categories()->attach($categories);
+            $ids = [];
+            foreach($categoriesShuffle as $k => $array){
+                $ids[] = $array["id"];
+            }
+            $product->categories()->attach($ids);
 
             $product->save();
         });

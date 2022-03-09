@@ -10,6 +10,6 @@ class Category extends Model
     use HasFactory; 
     
     public function products(){
-        return $this->ManyToMany(Products::class);
+        return $this->ManyToMany(Product::class);
     }
 }

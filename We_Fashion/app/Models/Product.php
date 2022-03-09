@@ -11,6 +11,6 @@ class Product extends Model
 
     public function categories()
     {
-        return $this->OneToMany(Category::class);
+        return $this->ManyToMany(Category::class);
     }
 }

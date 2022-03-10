@@ -16,10 +16,6 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // route dynamique product/8 product/1 => pour récupérer l'idée product
 Route::get('/products', [ProductController::class, 'index'])->name('sold');
 

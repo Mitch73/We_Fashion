@@ -13,7 +13,7 @@ class ProductController extends Controller
     }
 
     public function showSex(string $name){
-        $category = Category::where('sex', $name)->get();
+        $category = Category::where('sex', $name)->get()[0];
 
         return view("categories.index", ['products' => $category->products, 'category' => $category]);
 

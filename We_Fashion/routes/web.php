@@ -19,8 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// route dynamique product/8 product/1 => pour récupérer l'idée product
 Route::get('/products', [ProductController::class, 'index'])->name('products');
 
+// vous pouvez faire du binding avec le modèle id => instance de la classe Category
+// les routes sont avec paramètre (id de la category à afficher )
 Route::get('/category/{category}', [ProductController::class, 'showcate'])->name('category');
+
+Route::get('/', function () {
+    return view('welcome');
+});
 
 

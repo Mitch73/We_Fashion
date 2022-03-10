@@ -11,7 +11,7 @@ class ProductController extends Controller
     }
 
     public function showBook(Category $category){
-        return view('product.single', ['category' => $category]);
+        return view('categories.single', ['category' => $category]);
 
     }
 }

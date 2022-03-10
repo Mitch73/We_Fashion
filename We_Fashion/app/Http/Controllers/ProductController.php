@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
     public function index(){
-        return view('products.index');
+        return view('products.index', ['products' => Product::all()]);
     }
 
-    public function showBook(Category $category){
-        return view('categories.single', ['category' => $category]);
+    public function showSex(string $name){
+        $category = Category::where('sex', $name)->get();
+
+        return view("categories.index", ['products' => $category->products, 'category' => $category]);
 
     }
 }

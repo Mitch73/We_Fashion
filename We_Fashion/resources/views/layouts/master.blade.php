@@ -11,9 +11,7 @@
  
         <div class="container">
             <nav>
-                <a href="{{ route('sold') }}">Sold</a>
-                <a href="{{ route('homme') }}">Homme</a>
-                <a href="{{ route('femme') }}">Femme</a>
+                @include('menu.index')
             </nav>
             @yield('content')
         </div>

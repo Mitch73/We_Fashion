@@ -18,7 +18,7 @@ class CategoryFactory extends Factory
     {
         return [
             'description' => $this->faker->description(),
-            'categories' => $this->faker->categories(),
+            'sex' => $this->faker->categories(),
         ];
     }
 }

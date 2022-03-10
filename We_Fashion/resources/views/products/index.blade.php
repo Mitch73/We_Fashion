@@ -1,20 +1,19 @@
 @extends('layouts.master')
 
 @section('content')
-@foreach ($products as $product)
+ @foreach ($products as $product)
 {{-- Rendre cliquable le titre suivant $product->id --}}
-<p>This is product <a href="{{ route('product', $product) }}">{{ $product->title }}</a></p>
+{{-- <p>This is product <a href="{{ route('product', $product) }}">{{ $product->name }}</a></p> --}}
 {{-- ICI affichez les noms des produits, vérifiez qu'ils existent avant --}}
 {{-- Faire un foreach Laravel pour afficher --}}
-<ul>
-    {{-- Vous pouvez soit écrire $book->authors()->get() soit écrire $book->authors pour récupérer les auteurs dans un itérable --}}
-    @forelse ($product->authors as $author)
-    <li><a href="{{ route('category', $category) }}">{{ $category->categories }}</a></li>
-    <p>----------------------</p>
-    @empty
-    <li>Others</li>
-    @endforelse
-</ul>
+    <ul>
+        <li> {{$product->name}}</li> 
+        <li> {{$product->price}}</li> 
+        <li> {{$product->description}} </li> 
+        <li> {{$product->visibilité}} </li> 
+        <li> {{$product->etat}} </li> 
+        <li> {{$product->reference}} </li>
+    </ul>      
 @endforeach
 @endsection
 

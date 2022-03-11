@@ -9,7 +9,7 @@
         <li> {{$product->visibilité}} </li> 
         <li> {{$product->etat}} </li> 
         <li> {{$product->reference}} </li>
-    </ul>      
+</ul>      
 
 @endforeach
 

@@ -13,9 +13,15 @@ class ProductController extends Controller
     }
 
     public function showSex(string $name){
-        $category = Category::where('sex', $name)->get()[0];
+        $category = Category::where('sex', $name)->get();
 
-        return view("categories.index", ['products' => $category->products, 'category' => $category]);
+        $products = [];
+
+        if(count($category) > 0){
+            $products = $category[0]->products;
+        }
+
+        return view("categories.index", ['products' => $products, 'category' => $category]);
 
     }
 }

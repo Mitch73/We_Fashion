@@ -21,5 +21,10 @@ class CategorySeeder extends Seeder
         $category->description = Str::random(20);
         $category->sex = random_int(0,1 ) ? "Homme" : "Femme" ;
         $category->save();
+        
+        $category = new Category;
+        $category->description = Str::random(20);
+        $category->sex = random_int(0,1 ) ? "Homme" : "Femme" ;
+        $category->save();
     }
 }

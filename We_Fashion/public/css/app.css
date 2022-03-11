@@ -11285,3 +11285,14 @@ body{
     background: beige;
 }
 
+li{
+    list-style: none;
+}
+
+.pro{
+    margin: auto;
+    margin: 2rem;
+    border: 2px solid red;
+    padding: 1rem;
+}
+

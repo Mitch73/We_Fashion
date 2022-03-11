@@ -3,7 +3,7 @@
     <head>
         <title>App Name - We Fashion</title>
         <link rel="stylesheet" href="/css/app.css">
-    </head>
+</head>
 
     <body>
         @section('sidebar')

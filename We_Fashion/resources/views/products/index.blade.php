@@ -1,4 +1,5 @@
-@extends('layouts.master')
+{{--@extends('layouts.master')--}}
+@extends('layouts.app')
 
 @section('content')
  @foreach ($products as $product)
@@ -6,7 +7,7 @@
 {{-- <p>This is product <a href="{{ route('product', $product) }}">{{ $product->name }}</a></p> --}}
 {{-- ICI affichez les noms des produits, vérifiez qu'ils existent avant --}}
 {{-- Faire un foreach Laravel pour afficher --}}
-    <ul>
+    <ul class="product">
         <li> {{$product->name}}</li> 
         <li> {{$product->price}}</li> 
         <li> {{$product->description}} </li> 

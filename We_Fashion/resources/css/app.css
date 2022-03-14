@@ -54,6 +54,6 @@ li{
     justify-content: space-around;
 }
 
-/* .box li:hover{
+.box li:hover{
     color: rgb(21, 245, 226);
-} */
+}

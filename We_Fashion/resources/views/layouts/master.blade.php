@@ -3,18 +3,22 @@
     <head>
         <title>App Name - We Fashion</title>
         <link rel="stylesheet" href="/css/app.css">
-    </head>
+</head>
 
     <body>
         @section('sidebar')
-            This is the master sidebar.
+            {{-- This is the master sidebar. --}}
         @show
  
         <div class="container">
             <nav>
                 @include('menu.index')
-            </nav>
+            </nav>          
+
             @yield('content')
+            <footer>
+                @include('footer.index')                
+            </footer> 
         </div>
     </body>
 

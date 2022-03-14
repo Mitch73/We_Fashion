@@ -11281,39 +11281,59 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-a{
+li{
+    list-style: none;
+}
+/* navbar */
+.menu{
+    display: flex;
+    background: rgb(146, 146, 146);
+    padding: 3em 0;
+    justify-content: space-around;
+}
+
+.menu a{
     text-decoration: none;
     color: #000;
 }
 
-a:hover{
+.menu a:hover{
     color: rgb(21, 245, 226);
 }
-
-li{
-    list-style: none;
-}
-/* navbar page products/homepage */
-.menu{
-    display: flex;
-    background: rgb(122, 122, 126);
-    padding: 3em 0;
-    justify-content: space-around;
-}
-/* products sold */
-.pro{
-    margin: auto;
-    margin: 1rem;
-    padding: 1rem;
-}
 /* products/index.blade */
-.content{
+.content, .categories{
     display: flex;
     flex-flow: wrap;
 }
+/* pages of products sold femme et homme */
+.pro, .sex{
+    margin: 1rem;
+    padding: 1rem;
+}
+/* products */
+.products{
+    text-decoration: none;
+    color: #000;
+}
+.products:hover{
+    color: #000;
+}
+.sex:hover{
+    box-shadow: 2px 2px 10px 0px #000;
+}
+.pro:hover{
+    box-shadow: 2px 2px 10px 0px #000;
+}
 /* footer */
 .footer{
-    background: rgb(122, 122, 126);
+    display: flex;
+    background: rgb(146, 146, 146);
     padding: 2em 0;
     justify-content: space-around;
 }
+
+/* .box li:hover{
+    color: rgb(21, 245, 226);
+} */
+
+

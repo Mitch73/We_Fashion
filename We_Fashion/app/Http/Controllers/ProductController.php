@@ -12,6 +12,10 @@ class ProductController extends Controller
         return view('products.index', ['products' => Product::all()]);
     }
 
+    public function product(){
+        return view('products.product', ['products' => Product::all()]);
+    }
+
     public function showSex(string $name){
         $category = Category::where('sex', $name)->get();
 

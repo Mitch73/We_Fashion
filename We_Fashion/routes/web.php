@@ -17,7 +17,9 @@ use App\Http\Controllers\ProductController;
 */
 
 // route dynamique product/8 product/1 => pour récupérer l'idée product
-Route::get('/products', [ProductController::class, 'index'])->name('sold');
+Route::get('/home', [ProductController::class, 'index'])->name('sold');
+
+Route::get('/product', [ProductController::class, 'product'])->name('product');
 
 // vous pouvez faire du binding avec le modèle id => instance de la classe Category
 // les routes sont avec paramètre (id de la category à afficher )
@@ -25,7 +27,6 @@ Route::get('/products', [ProductController::class, 'index'])->name('sold');
 
 Route::get('/sex/{name}', [ProductController::class, 'showSex'])->name('sex');
 
-// Route::get('/category/{category}', [ProductController::class, 'showCate'])->name('homme');
 
 Route::get('/', function () {
     return view('welcome');

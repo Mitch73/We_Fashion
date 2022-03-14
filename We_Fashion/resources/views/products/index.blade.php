@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+<div class="content">
  @foreach ($products as $product)
 {{-- Rendre cliquable le titre suivant $product->id --}}
 {{-- <p>This is product <a href="{{ route('product', $product) }}">{{ $product->name }}</a></p> --}}
@@ -15,6 +16,7 @@
         <li> {{$product->reference}} </li>
     </ul>      
 @endforeach
+</div>
 @endsection
 
 

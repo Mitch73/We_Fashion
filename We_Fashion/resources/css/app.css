@@ -1,17 +1,38 @@
 @import 'bootstrap';
 
+a{
+    text-decoration: none;
+    color: #000;
+}
 
-body{
-    background: beige;
+a:hover{
+    color: rgb(21, 245, 226);
 }
 
 li{
     list-style: none;
 }
-
+/* navbar page products/homepage */
+.menu{
+    display: flex;
+    background: rgb(122, 122, 126);
+    padding: 3em 0;
+    justify-content: space-around;
+}
+/* products sold */
 .pro{
     margin: auto;
-    margin: 2rem;
-    border: 2px solid red;
+    margin: 1rem;
     padding: 1rem;
+}
+/* products/index.blade */
+.content{
+    display: flex;
+    flex-flow: wrap;
+}
+/* footer */
+.footer{
+    background: rgb(122, 122, 126);
+    padding: 2em 0;
+    justify-content: space-around;
 }

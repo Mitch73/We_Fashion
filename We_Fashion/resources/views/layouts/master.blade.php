@@ -7,14 +7,18 @@
 
     <body>
         @section('sidebar')
-            This is the master sidebar.
+            {{-- This is the master sidebar. --}}
         @show
  
         <div class="container">
             <nav>
                 @include('menu.index')
-            </nav>
+            </nav>          
+
             @yield('content')
+            <footer>
+                @include('footer.index')                
+            </footer> 
         </div>
     </body>
 

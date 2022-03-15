@@ -15,9 +15,6 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -25,7 +22,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/home', [ProductController::class, 'index'])->name('sold');
+Route::get('/', [ProductController::class, 'index'])->name('sold');
 
 Route::get('/product', [ProductController::class, 'product'])->name('product');
 
@@ -34,3 +31,5 @@ Route::get('/product', [ProductController::class, 'product'])->name('product');
 // Route::get('/category/{category}', [ProductController::class, 'showCate'])->name('sex');
 
 Route::get('/sex/{name}', [ProductController::class, 'showSex'])->name('sex');
+
+// Route::get('/sex/{name}', [ProductController::class, 'showSex'])->name('sex');

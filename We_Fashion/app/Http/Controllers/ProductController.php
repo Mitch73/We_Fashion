@@ -8,14 +8,8 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    // public function __construct(){
-    //     $this->middleware("auth")->except([
-    //         'homme',
-    //         'femme',
-    //         'products',
-    //         'home',
-    //     ]);
-    // }
+    
+    
     public function index(){
         // on va appeler les différents products
         return view('products.index', ['products' => Product::all()]);

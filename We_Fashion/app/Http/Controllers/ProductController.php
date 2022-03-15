@@ -18,6 +18,10 @@ class ProductController extends Controller
     public function product(){
         return view('products.product', ['products' => Product::all()]);
     }
+    
+    public function create_product(){
+        return view('admin.index', ['products' => Product::all()]);
+    }
 
     public function showSex(string $name){
         // on va appeler les différents categories

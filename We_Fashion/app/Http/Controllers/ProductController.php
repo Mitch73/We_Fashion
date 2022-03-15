@@ -15,12 +15,8 @@ class ProductController extends Controller
         return view('products.index', ['products' => Product::all()]);
     }
 
-    public function product(){
-        return view('products.product', ['products' => Product::all()]);
-    }
-    
-    public function create_product(){
-        return view('admin.index', ['products' => Product::all()]);
+    public function product(Product $product){
+        return view('products.product', ['product' => $product]);
     }
 
     public function showSex(string $name){
@@ -36,4 +32,15 @@ class ProductController extends Controller
         return view("categories.index", ['products' => $products, 'category' => $category]);
 
     }
+
+    /**controller pour la partie admin */
+    // page admin
+    public function admin(Product $product) {
+        return view('admin.index', ['product' => $product]);
+    }
+    
+    // création de nouveau produit
+    // public function new_product(Product $product){
+    //     return view('admin.index', ['product' => $product]);
+    // }
 }

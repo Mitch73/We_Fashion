@@ -33,7 +33,9 @@ Route::get('/product', [ProductController::class, 'product'])->name('product');
 // Route::get('/category/{category}', [ProductController::class, 'showSex'])->name('sex');
 Route::get('/sex/{name}', [ProductController::class, 'showSex'])->name('sex');
 
-// Route::get('/sex/{name}', [ProductController::class, 'showSex'])->name('sex');
+/**Route pour la partie admin */
+// page admin
+Route::get("admin", [ProductController::class, "admin"])->name("admin");
 
-// Route pour la création de page
-Route::get("admin", [ProductController::class, "create_product"]) -> name("admin");
+
+// Route::get("new", [ProductController::class, "new_product"])->name("new_product");

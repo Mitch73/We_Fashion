@@ -12,7 +12,7 @@
  
         <div class="container">
             <nav>
-                @include('')
+                {{-- @include('') --}}
             </nav>          
 
             @yield('content')

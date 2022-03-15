@@ -35,9 +35,9 @@ class ProductController extends Controller
 
     /**controller pour la partie admin */
     // page admin
-    public function admin(Product $product) {
-        return view('admin.index', ['product' => $product]);
-    }
+    // public function admin(Product $product) {
+    //     return view('admin.index', ['product' => $product]);
+    // }
     
     // création de nouveau produit
     // public function new_product(Product $product){

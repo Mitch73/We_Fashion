@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,9 @@ Route::get('/sex/{name}', [ProductController::class, 'showSex'])->name('sex');
 
 /**Route pour la partie admin */
 // page admin
-Route::get("admin", [ProductController::class, "admin"])->name("admin");
+// Route::get("admin", [ProductController::class, "admin"])->name("admin");
+
+Route::resource('admin', AdminController::class);
 
 
 // Route::get("new", [ProductController::class, "new_product"])->name("new_product");

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id(); // clé primaire
             $table->text('name');
             $table->text('description')->nullable(); // TEXT NULL
+            $table->string('size');
             $table->string('visibility');
             $table->string('etat');
             $table->text('reference');

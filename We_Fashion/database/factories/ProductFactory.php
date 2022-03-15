@@ -20,6 +20,7 @@ class ProductFactory extends Factory
             'name' => $this->faker->name(),
             'price' => $this->faker->randomFloat($nbMaxDecimals = 1, $min = 5, $max = 100),
             'description' => $this->faker->sentence(),
+            'size' => $this->faker->randomElement($array = array ('XS','S', 'M', 'L', 'XL', 'XXL', 'XXXL')),
             'visibility' => $this->faker->randomElement($array = array ('publié','non publié')),
             'etat' => $this->faker->randomElement($array = array ('','sold')),
             'reference' => $this->faker->regexify('[A-Z0-9]+@[A-Z0-9]+\.[A-Z]{2,4}')

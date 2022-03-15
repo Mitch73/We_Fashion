@@ -31,7 +31,7 @@ class AdminController extends Controller
     public function create()
     {
         // return view('admin.index', ['product' => $product]);
-        return view("admin.create");
+        return view("admin.edit");
         
     }
 

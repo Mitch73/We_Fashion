@@ -5,7 +5,7 @@
 	<h1>Tous les articles</h1>
 
 	<p>
-		<!-- Lien pour créer un nouvel article : "posts.create" -->
+		<!-- Lien pour créer un nouvel article : "admin.create" -->
 		<a href="{{ route('admin.create') }}" title="Créer un article" >Créer un nouveau post</a>
 	</p>
 
@@ -18,19 +18,19 @@
 			</tr>
 		</thead>
 		<tbody>
-			<!-- On parcourt la collection de Post -->
+			<!-- On parcourt la collection de Admin -->
 			@foreach ($admin as $ad)
 			<tr>
 				<td>
-					<!-- Lien pour afficher un Post : "posts.show" -->
+					<!-- Lien pour afficher un produit : "admin.show" -->
 					<a href="{{ route('admin.show', $ad) }}" title="Lire l'article" >{{ $ad->title }}</a>
 				</td>
 				<td>
-					<!-- Lien pour modifier un Post : "posts.edit" -->
+					<!-- Lien pour modifier un produit : "admin.edit" -->
 					<a href="{{ route('admin.edit', $ad) }}" title="Modifier l'article" >Modifier</a>
 				</td>
 				<td>
-					<!-- Formulaire pour supprimer un Post : "posts.destroy" -->
+					<!-- Formulaire pour supprimer un produit : "admin.destroy" -->
 					<form method="POST" action="{{ route('admin.destroy', $ad) }}" >
 						<!-- CSRF token -->
 						@csrf

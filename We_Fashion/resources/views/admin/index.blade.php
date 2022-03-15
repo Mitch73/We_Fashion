@@ -1,72 +1,47 @@
 @extends("layouts.admin")
+@section("title", "Tous les articles")
+@section("content")
 
-@section("description")
-<span>La page de création de produits</span>
-@endsection
+	<h1>Tous les articles</h1>
 
-@section("title")
-Page de création de produits - We Fashion
-@endsection
+	<p>
+		<!-- Lien pour créer un nouvel article : "posts.create" -->
+		<a href="{{ route('admin.create') }}" title="Créer un article" >Créer un nouveau post</a>
+	</p>
 
-@section('content')
-<div class="">
-    <h1 class="">
-        <a href="{{ route("admin.create") }}">
-            Créer un nouveau produit
-        </a></h1>
-    <form action="" method="post" enctype="multipart/form-data">
-        <div class="">
-            <label for="floatingInput">Entrez le nom du produit</label>
-            <input type="text" class="form-control" id="floatingInput" placeholder="Entrez le nom du produit" name="name">
-        </div>
-        <div class="" style="margin-bottom: 15px">
-            <label for="floatingTextarea2">Entrez la description du produit</label>
-            <textarea class="form-control" placeholder="Entrez la description du produit" id="floatingTextarea2" style="height: 100px" name="description"></textarea>
-        </div>
-        <div class="">
-            <label for="floatingPassword">Entrez la référence du produit</label>
-            <input type="text" class="form-control" id="floatingPassword" placeholder="Entrez la référence du produit" name="reference">
-        </div>
-        <div class="">
-            <label for="floatingPassword">Entrez le prix du produit</label>
-            <input type="number" class="form-control" id="floatingPassword" placeholder="Entrez le prix du produit" name="price">
-        </div>
-        <div class="">
-            <label for="floatingSelect">Sélectionnez l'état du produit</label>
-            <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="condition">
-                <option selected disabled>Sélectionner l'état</option>
-                <option value="sold">Sold</option>
-                <option value="standard">Standard</option>
-            </select>
-        </div>
-        <div class="">
-            <label for="floatingSelect">Sélectionnez la taille du produit</label>
-            <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="condition">
-                <option selected disabled>Sélectionner la taille</option>
-                <option value="xs">XS</option>
-                <option value="s">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-                <option value="xxl">XXL</option>
-                <option value="xxxl">XXXL</option>
-            </select>
-        </div>
-        <div class="">
-            <label for="floatingSelect">Sélectionnez la visibilité du produit</label>
-            <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="visibility">
-                <option selected disabled>Sélectionner la visibilité</option>
-                <option value="publié">publié</option>
-                <option value="non publié">non publié</option>
-            </select>
-        </div>
-        
-        <input type="file" class="form-control" id="floatingPassword">
-        
-        <div class="">
-            <button class="btn btn-primary" type="button"><span>Créer le produit</span></button>
-        </div>
-    </form>
-</div>
-</div>
+	<!-- Le tableau pour lister les articles/posts -->
+	<table>
+		<thead>
+			<tr>
+				<th>Titre</th>
+				<th colspan="2" >Opérations</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- On parcourt la collection de Post -->
+			@foreach ($admin as $ad)
+			<tr>
+				<td>
+					<!-- Lien pour afficher un Post : "posts.show" -->
+					<a href="{{ route('admin.show', $ad) }}" title="Lire l'article" >{{ $ad->title }}</a>
+				</td>
+				<td>
+					<!-- Lien pour modifier un Post : "posts.edit" -->
+					<a href="{{ route('admin.edit', $ad) }}" title="Modifier l'article" >Modifier</a>
+				</td>
+				<td>
+					<!-- Formulaire pour supprimer un Post : "posts.destroy" -->
+					<form method="POST" action="{{ route('admin.destroy', $ad) }}" >
+						<!-- CSRF token -->
+						@csrf
+						<!-- <input type="hidden" name="_method" value="DELETE"> -->
+						@method("DELETE")
+						<input type="submit" value="x Supprimer" >
+					</form>
+				</td>
+			</tr>
+			@endforeach
+		</tbody>
+	</table>
+	
 @endsection

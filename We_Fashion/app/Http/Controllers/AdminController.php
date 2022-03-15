@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -17,7 +17,7 @@ class AdminController extends Controller
     public function index()
     {
         //On récupère tous les Admin
-        $admin = Admin::latest()->get();
+        $admin = Product::latest()->get();
 
         // On transmet les Admin à la vue
         return view("admin.index", compact("admin"));
@@ -31,6 +31,7 @@ class AdminController extends Controller
     public function create()
     {
         // return view('admin.index', ['product' => $product]);
+        return view("admin.create");
         
     }
 

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div>
+    <div class="content">
     <ul>
         <li> {{$product->name}}</li> 
         <li> {{$product->price}}</li> 
@@ -9,6 +9,6 @@
         <li> {{$product->visibility}} </li> 
         <li> {{$product->etat}} </li> 
         <li> {{$product->reference}} </li>
-    </ul>
+</ul>
 </div>    
-@endsection
+    @endsection

@@ -32,8 +32,7 @@ class AdminController extends Controller
     public function create()
     {
         // return view('admin.index', ['product' => $product]);
-        return view("admin.create");
-        
+        return view("admin.create");        
     }
 
     /**
@@ -46,18 +45,26 @@ class AdminController extends Controller
     {
         // 1. La validation
         $this->validate($request, [
-            'name' => 'bail|required|string|max:255',
-            "picture" => 'bail|required|image|max:1024',
-            "content" => 'bail|required', // a voir
+            'name' => 'required|string|max:255',
+            "picture" => 'required|image|max:1024',
+            "description" => 'required',
+            "price" => 'required|float|max:255',
+            "size" => 'required|float|max:255',
+            "visibility" => 'required|string|max:255',
+            "etat" => 'required|string|max:255'
         ]);
 
         $path_image = $request->picture->store("admin"); // a voir
 
         // 3. On enregistre les informations du produit
-        Post::create([
+        Product::create([
             "name" => $request->name,
             "picture" => $path_image,
-            "content" => $request->content, // a voir
+            "description" => $request->description, // a voir
+            "price" => $request->price,
+            "size" => $request->size,
+            "visibility" => $request->visibility,
+            "etat" => $etat
         ]);
 
         // 4. On retourne vers tous les produits : route("posts.index")

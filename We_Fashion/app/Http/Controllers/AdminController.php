@@ -16,11 +16,12 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //On récupère tous les Admin
+        //On récupère tous les produits
         $admin = Product::latest()->get();
 
         // On transmet les Admin à la vue
         return view("admin.index", compact("admin"));
+        
     }
 
     /**

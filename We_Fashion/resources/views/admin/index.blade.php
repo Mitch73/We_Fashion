@@ -23,7 +23,7 @@
 			<tr>
 				<td>
 					<!-- Lien pour afficher un produit : "admin.show" -->
-					<a href="{{ route('admin.show', $ad) }}" title="Lire l'article" >{{ $ad->title }}</a>
+					<a href="{{ route('admin.show', $ad) }}" title="Lire l'article" >{{ $ad->name }}</a>
 				</td>
 				<td>
 					<!-- Lien pour modifier un produit : "admin.edit" -->

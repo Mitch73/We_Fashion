@@ -12,7 +12,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     You're logged in!
-                    <a href="{{ route("admin") }}">
+                    <a href="{{ route("admin.index") }}">
                         <span>Ressources Produits</span>
                     </a>
                     {{-- <a href="{{ route("admin.index") }}">

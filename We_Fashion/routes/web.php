@@ -38,7 +38,7 @@ Route::get('/sex/{name}', [ProductController::class, 'showSex'])->name('sex');
 // page admin
 // Route::get("admin", [ProductController::class, "admin"])->name("admin");
 
-Route::resource('admin', AdminController::class);
+Route::resource('admin', AdminController::class)->middleware('auth');
 
 
 // Route::get("new", [ProductController::class, "new_product"])->name("new_product");

@@ -3,7 +3,7 @@
     <head>
         <title>App Name - We Fashion</title>
         <link rel="stylesheet" href="../css/app.css">
-</head>
+    </head>
 
     <body>
         @section('sidebar')
@@ -16,9 +16,7 @@
             </nav>          
 
             @yield('content')
-            <footer>
-                @include('footer.index')                
-            </footer> 
+                @include('footer.index')  
         </div>
     </body>
 

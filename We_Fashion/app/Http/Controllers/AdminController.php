@@ -32,7 +32,7 @@ class AdminController extends Controller
     public function create()
     {
         // return view('admin.index', ['product' => $product]);
-        return view("admin.edit");
+        return view("admin.create");
         
     }
 
@@ -44,7 +44,24 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 1. La validation
+        $this->validate($request, [
+            'name' => 'bail|required|string|max:255',
+            "picture" => 'bail|required|image|max:1024',
+            "content" => 'bail|required', // a voir
+        ]);
+
+        $path_image = $request->picture->store("admin"); // a voir
+
+        // 3. On enregistre les informations du produit
+        Post::create([
+            "name" => $request->name,
+            "picture" => $path_image,
+            "content" => $request->content, // a voir
+        ]);
+
+        // 4. On retourne vers tous les produits : route("posts.index")
+        return redirect(route("admin.index"));
     }
 
     /**
@@ -55,7 +72,7 @@ class AdminController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view("admin.show", compact("admin"));
     }
 
     /**

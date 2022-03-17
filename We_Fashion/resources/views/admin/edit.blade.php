@@ -1,71 +1,74 @@
-{{-- @extends("layouts.app")
-@section("title", "Editer un post")
+@extends("layouts.admin")
+
+@section("description")
+<span>La page de création de produits</span>
+@endsection
+
+@section("title")
+Page de création de produits - We Fashion
+@endsection
+
 @section("content")
 
-	<h1>Editer un post</h1>
-
-	<!-- Si nous avons un Post $post -->
-	@if (isset($post))
-
-	<!-- Le formulaire est géré par la route "posts.update" -->
-	<form method="POST" action="{{ route('posts.update', $post) }}" enctype="multipart/form-data" >
-
-		<!-- <input type="hidden" name="_method" value="PUT"> -->
-		@method('PUT')
-
-	@else
-
-	<!-- Le formulaire est géré par la route "posts.store" -->
-	<form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data" >
-
-	@endif
-
+<div>
+    <h1>
+            Créer un nouveau produit
+    </h1>
+    <form method="post" action="{{ route('admin.update', $product->id) }}" enctype="multipart/form-data">
 		<!-- Le token CSRF -->
 		@csrf
 		
-		<p>
-			<label for="title" >Titre</label><br/>
-
-			<!-- S'il y a un $post->title, on complète la valeur de l'input -->
-			<input type="text" name="title" value="{{ isset($post->title) ? $post->title : old('title') }}"  id="title" placeholder="Le titre du post" >
-
-			<!-- Le message d'erreur pour "title" -->
-			@error("title")
-			<div>{{ $message }}</div>
-			@enderror
-		</p>
-
-		<!-- S'il y a une image $post->picture, on l'affiche -->
-		@if(isset($post->picture))
-		<p>
-			<span>Couverture actuelle</span><br/>
-			<img src="{{ asset('storage/'.$post->picture) }}" alt="image de couverture actuelle" style="max-height: 200px;" >
-		</p>
-		@endif
-
-		<p>
-			<label for="picture" >Couverture</label><br/>
-			<input type="file" name="picture" id="picture" >
-
-			<!-- Le message d'erreur pour "picture" -->
-			@error("picture")
-			<div>{{ $message }}</div>
-			@enderror
-		</p>
-		<p>
-			<label for="content" >Contenu</label><br/>
-
-			<!-- S'il y a un $post->content, on complète la valeur du textarea -->
-			<textarea name="content" id="content" lang="fr" rows="10" cols="50" placeholder="Le contenu du post" >{{ isset($post->content) ? $post->content : old('content') }}</textarea>
-
-			<!-- Le message d'erreur pour "content" -->
-			@error("content")
-			<div>{{ $message }}</div>
-			@enderror
-		</p>
-
-		<input type="submit" name="valider" value="Valider" >
-
-	</form>
-
-@endsection --}}
+        <div>
+            <label for="floatingInput">Entrez le nom du produit</label>
+            <input type="text" class="form-control" id="floatingInput" placeholder="Entrez le nom du produit" name="name">
+        </div>
+        <div>
+            <label for="floatingTextarea2">Entrez la description du produit</label>
+            <textarea class="form-control" placeholder="Entrez la description du produit" id="floatingTextarea2" style="height: 100px" name="description"></textarea>
+        </div>
+        <div>
+            <label for="floatingPassword">Entrez la référence du produit</label>
+            <input type="text" class="form-control" id="floatingPassword" placeholder="Entrez la référence du produit" name="reference">
+        </div>
+        <div>
+            <label for="floatingPassword">Entrez le prix du produit</label>
+            <input type="number" class="form-control" placeholder="Entrez le prix du produit" name="price">
+        </div>
+        <div>
+            <label for="floatingSelect">Sélectionnez l'état du produit</label>
+            <select class="form-select" aria-label="Floating label select example" name="condition">
+                <option selected disabled>Sélectionner l'état</option>
+                <option value="sold">Sold</option>
+                <option value="standard">Standard</option>
+            </select>
+        </div>
+        <div>
+            <label for="floatingSelect">Sélectionnez la taille du produit</label>
+            <select class="form-select" aria-label="Example" name="size">
+                <option selected disabled>Sélectionner la taille</option>
+                <option value="xs">XS</option>
+                <option value="s">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="xxl">XXL</option>
+                <option value="xxxl">XXXL</option>
+            </select>
+        </div>
+        <div>
+            <label for="floatingSelect">Sélectionnez la visibilité du produit</label>
+            <select class="form-select" aria-label="Select example" name="visibility">
+                <option selected disabled>Sélectionner la visibilité</option>
+                <option value="publié">publié</option>
+                <option value="non publié">non publié</option>
+            </select>
+        </div>
+        
+        <input type="file" class="form-control">
+        
+        <div>
+            <button class="btn btn-primary" type="button"><span>Créer le produit</span></button>
+        </div>
+    </form>
+</div>
+@endsection

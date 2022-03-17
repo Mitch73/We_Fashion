@@ -60,14 +60,14 @@ class AdminController extends Controller
         Product::create([
             "name" => $request->name,
             "picture" => $path_image,
-            "description" => $request->description, // a voir
+            "description" => $request->description,
             "price" => $request->price,
             "size" => $request->size,
             "visibility" => $request->visibility,
             "etat" => $etat
         ]);
 
-        // 4. On retourne vers tous les produits : route("posts.index")
+        // 4. On retourne vers tous les produits : route("admin.index")
         return redirect(route("admin.index"));
     }
 
@@ -79,7 +79,7 @@ class AdminController extends Controller
      */
     public function show(Product $product)
     {
-        return view("admin.show", compact("admin"));
+        return view("admin.show", compact("admin")); // a voire
     }
 
     /**
@@ -88,9 +88,11 @@ class AdminController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Request $request)
     {
-        //
+        $id=$request->route('id');
+        $product = Product::find($id);
+        return view('admin.create', ['products'=>$product]);
     }
 
     /**
@@ -102,7 +104,50 @@ class AdminController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        // 1. La validation
+
+        // Les règles de validation pour "name"...
+        $rules = [
+            'name' => 'required|string|max:255',
+            "picture" => 'required|image|max:1024',
+            "description" => 'required',
+            "price" => 'required|float|max:255',
+            "size" => 'required|float|max:255',
+            "visibility" => 'required|string|max:255',
+            "etat" => 'required|string|max:255'
+        ];
+
+        // Si une nouvelle image est envoyée
+        if ($request->has("picture")) {
+            // On ajoute la règle de validation pour "picture"
+            $rules["picture"] = 'required|image|max:1024';
+        }
+
+        $this->validate($request, $rules);
+
+        // 2. On upload l'image dans "/storage/app/public/posts"
+        if ($request->has("picture")) {
+
+            //On supprime l'ancienne image
+            // Storage::delete($product->picture);
+
+            $path_image = $request->picture->store("admin");
+        }
+
+        // 3. On met à jour les informations du Produit
+        $product->update([
+            "name" => $request->name,
+            "picture" => isset($path_image) ? $path_image : $product->picture,
+            "description" => $request->content,
+            "price" => $request->price,
+            "size" => $request->size,
+            "visibility" => $request->visibility,
+            "etat" => $etat
+        ]);
+
+        // 4. On affiche le produit modifié : route("admin.show")
+        return redirect(route("admin.show", $product));
+
     }
 
     /**
@@ -113,6 +158,18 @@ class AdminController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        // On supprime l'image existant
+        // Storage::delete($product->picture); 
+        
+        // On supprime les informations du $produit de la table "admin"
+        $product->delete();
+
+        // Redirection route "admin.index"
+        return redirect(route('admin.index'));
     }
 }
+
+    
+
+
+

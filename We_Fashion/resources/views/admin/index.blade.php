@@ -3,10 +3,14 @@
 @section("content")
 
 	<h1>Tous les articles</h1>
-
+	
 	<p>
 		<!-- Lien pour créer un nouvel article : "admin.create" -->
 		<a href="{{ route('admin.create') }}" title="Créer un article" >Créer un nouveau post</a>
+	</p>
+	<p>
+		<!-- Lien pour créer un nouvel article : "admin.create" -->
+		<a href="{{ route('dashboard') }}" title="Créer un article" >Dashboard</a>
 	</p>
 
 	<!-- Le tableau pour lister les articles/posts -->
@@ -36,8 +40,9 @@
 						@csrf
 						<!-- <input type="hidden" name="_method" value="DELETE"> -->
 						@method("DELETE")
+
 						<input type="submit" value="x Supprimer" >
-					</form>
+				</form>
 				</td>
 			</tr>
 			@endforeach

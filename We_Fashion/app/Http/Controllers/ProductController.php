@@ -15,8 +15,11 @@ class ProductController extends Controller
         return view('products.index', ['products' => Product::all()]);
     }
 
-    public function product(Product $product){
-        return view('products.product', ['product' => $product]);
+    public function product(Request $request){
+        $id=$request->route('id');
+        $product = Product::find($id);
+        // dd($product->id);
+        return view('products.product', ['products' => $product->id]);
     }
 
     public function showSex(string $name){

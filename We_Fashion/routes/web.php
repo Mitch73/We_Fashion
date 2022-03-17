@@ -24,15 +24,15 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 // page d'acceuil
-Route::get('/home', [ProductController::class, 'index'])->name('sold');
+Route::get('/', [ProductController::class, 'index'])->name('sold');
 
 // Route vers la page d'un produit unique
-Route::get('/product', [ProductController::class, 'product'])->name('product');
+Route::get('product', [ProductController::class, 'product'])->name('product');
 
 // vous pouvez faire du binding avec le modèle id => instance de la classe Category
 // les routes sont avec paramètre (id de la category à afficher )
 // Route::get('/category/{category}', [ProductController::class, 'showSex'])->name('sex');
-Route::get('/sex/{name}', [ProductController::class, 'showSex'])->name('sex');
+Route::get('/sex/{name}/', [ProductController::class, 'showSex'])->name('sex');
 
 /**Route pour la partie admin */
 // page admin

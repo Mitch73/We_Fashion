@@ -17,10 +17,10 @@ class AdminController extends Controller
     public function index()
     {
         //On récupère tous les produits
-        $admin = Product::latest()->get();
+        $products = Product::latest()->get();
 
         // On transmet les Admin à la vue
-        return view("admin.index", compact("admin"));
+        return view("admin.index", ['products' => $products]);
         
     }
 
@@ -79,7 +79,7 @@ class AdminController extends Controller
      */
     public function show(Product $product)
     {
-        return view("admin.show", compact("admin")); // a voire
+        return view("admin.show", compact("admin")); 
     }
 
     /**
@@ -88,10 +88,8 @@ class AdminController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit(Product $product)
     {
-        $id=$request->route('id');
-        $product = Product::find($id);
         return view('admin.create', ['products'=>$product]);
     }
 

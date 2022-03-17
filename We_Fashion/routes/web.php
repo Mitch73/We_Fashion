@@ -27,7 +27,7 @@ require __DIR__.'/auth.php';
 Route::get('/', [ProductController::class, 'index'])->name('sold');
 
 // Route vers la page d'un produit unique
-Route::get('product', [ProductController::class, 'product'])->name('product');
+Route::get('showproduct/{id}', [ProductController::class, 'product'])->name('showproduct');
 
 // vous pouvez faire du binding avec le modèle id => instance de la classe Category
 // les routes sont avec paramètre (id de la category à afficher )
@@ -38,7 +38,8 @@ Route::get('/sex/{name}/', [ProductController::class, 'showSex'])->name('sex');
 // page admin
 // Route::get("admin", [ProductController::class, "admin"])->name("admin");
 
-Route::resource('admin', AdminController::class)->middleware('auth');
+Route::resource('product', AdminController::class, ['as' => 'product'])->middleware('auth');
+
 
 
 // Route::get("new", [ProductController::class, "new_product"])->name("new_product");

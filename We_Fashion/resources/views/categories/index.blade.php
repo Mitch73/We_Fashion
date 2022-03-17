@@ -3,14 +3,14 @@
 @section('content')
 <div class="categories">
 @foreach ($products as $product)
-<ul class="sex"><a class="products" href="{{ route('product') }}">
+<ul class="sex"><a class="products" href="{{ route('showproduct') }}">
         <li> {{$product->name}}</li> 
         <li> {{$product->price}}</li> 
         <li> {{$product->description}} </li> 
         <li> {{$product->visibilité}} </li> 
         <li> {{$product->etat}} </li> 
         <li> {{$product->reference}} </li>
-</ul>      
+</a></ul>      
 @endforeach
 </div>
 

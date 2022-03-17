@@ -14,7 +14,7 @@ Page de création de produits - We Fashion
     <h1>
             Créer un nouveau produit
     </h1>
-    <form method="post" action="{{ route('admin.store') }}" enctype="multipart/form-data">
+    <form method="post" action="{{ route('product.store') }}" enctype="multipart/form-data">
         <div>
             <label for="floatingInput">Entrez le nom du produit</label>
             <input type="text" class="form-control" id="floatingInput" placeholder="Entrez le nom du produit" name="name">

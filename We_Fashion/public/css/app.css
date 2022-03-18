@@ -10157,7 +10157,52 @@ select {
     justify-content: space-around;
 }.box li:hover{
     color: rgb(21, 245, 226);
-}.hover\:border-gray-300:hover{
+}/* mise en form des pages admin */.menu_admin{
+    display: flex;
+    background: rgb(146, 146, 146);
+    padding: 3em 0;
+    justify-content: space-around;
+}.menu_admin a{
+    text-decoration: none;
+    color: #000;
+}.menu_admin a:hover{    
+    color: rgb(21, 245, 226);
+}/* le dashboard */.dashboard{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    margin-top: 1rem;
+    justify-content: space-around;
+}.dashboard a{
+    text-decoration: none;
+    color: #000;
+}.dashboard a:hover{
+    color: rgb(21, 245, 226);
+}/* la page admin.index *//* mise en forme créer un nouveau produit */.admin_index a{
+    text-decoration: none;
+    color: #000;
+}.admin_index a:hover{
+    color: rgb(21, 245, 226);
+}/* mise en forme nom et operation du tableau */.name_operations{
+    display: flex;
+    grid-gap: 13rem;
+    margin-left: 2rem;
+}/* mise en forme des nom modifier et supprimer  */.admin_modifier{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+    justify-content: space-around;
+}.admin_modifier a{
+    text-decoration: none;
+    color: #000;
+}.admin_modifier a:hover{
+    text-decoration: underline;
+}input.admin_supprimer{
+    color: rgb(228, 27, 27);
+    margin-left: -4rem;
+}/* input .admin_supprimer a{
+    padding-top: 0.5rem;
+} */.hover\:border-gray-300:hover{
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }.hover\:bg-gray-100:hover{
@@ -10320,3 +10365,5 @@ select {
     padding-right: 2rem;
   }
 }
+
+

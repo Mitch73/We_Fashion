@@ -17,7 +17,7 @@ class ProductController extends Controller
 
     public function product($id){
         $product = Product::find($id);
-        dd($product);
+        // dd($product);
         return view('products.product', ['products' => $product]);
     }
 
@@ -34,15 +34,4 @@ class ProductController extends Controller
         return view("categories.index", ['products' => $products, 'category' => $category]);
 
     }
-
-    /**controller pour la partie admin */
-    // page admin
-    // public function admin(Product $product) {
-    //     return view('admin.index', ['product' => $product]);
-    // }
-    
-    // création de nouveau produit
-    // public function new_product(Product $product){
-    //     return view('admin.index', ['product' => $product]);
-    // }
 }

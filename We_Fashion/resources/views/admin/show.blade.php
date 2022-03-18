@@ -8,6 +8,6 @@
 
 	<div>{{ $ad->content }}</div>
 
-	{{-- <p><a href="{{ route('product.index') }}" title="Retourner aux articles" >Retourner aux ressources des produits</a></p> --}}
+	{{-- <p><a href="{{ route('product.product.index') }}" title="Retourner aux articles" >Retourner aux ressources des produits</a></p> --}}
 
 @endsection

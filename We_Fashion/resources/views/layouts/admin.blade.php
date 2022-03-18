@@ -12,7 +12,7 @@
  
         <div class="container">
             <nav>
-                {{-- @include('') --}}
+                @include('menu.menu_admin')
             </nav>          
 
             @yield('content')

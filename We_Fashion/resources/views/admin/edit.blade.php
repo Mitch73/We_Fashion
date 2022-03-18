@@ -14,7 +14,7 @@ Page de création de produits - We Fashion
     <h1>
             Créer un nouveau produit
     </h1>
-    <form method="post" action="{{ route('product.update', $product->id) }}" enctype="multipart/form-data">
+    <form method="post" action="{{ route('product.product.update', $product->id) }}" enctype="multipart/form-data">
 		<!-- Le token CSRF -->
 		@csrf
 		

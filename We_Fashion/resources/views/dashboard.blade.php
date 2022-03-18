@@ -12,15 +12,17 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     You're logged in!
-                    <a href="{{ route("product.product.index") }}">
-                        <span>Ressources Produits</span>
-                    </a> 
-                    {{-- <a href="{{ route("admin.index") }}">
-                        <span>Categories</span>
+                    <div class="dashboard">
+                        <a href="{{ route("product.product.index") }}">
+                            <span>Ressources Produits</span>
+                        </a> 
+                        {{-- <a href="{{ route("admin.index") }}">
+                            <span>Categories</span>
+                        </a> --}}
+                        <a href="{{ route("sold") }}">
+                            <span>Boutique</span>
+                    </div>
                     </a>
-                    <a href="{{ route("admin.index") }}">
-                        <span>Home</span>
-                    </a> --}}
                 </div>
             </div>
         </div>

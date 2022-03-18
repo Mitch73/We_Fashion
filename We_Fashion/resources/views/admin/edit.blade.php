@@ -1,18 +1,15 @@
-@extends("layouts.admin")
-
+{{-- @extends("layouts.admin")
 @section("description")
-<span>La page de création de produits</span>
+<span>La page de modification de produits</span>
 @endsection
-
 @section("title")
-Page de création de produits - We Fashion
+Page de modification de produits - We Fashion
 @endsection
-
 @section("content")
 
 <div>
     <h1>
-            Créer un nouveau produit
+            Modifier un nouveau produit
     </h1>
     <form method="post" action="{{ route('product.product.update', $product->id) }}" enctype="multipart/form-data">
 		<!-- Le token CSRF -->
@@ -71,4 +68,4 @@ Page de création de produits - We Fashion
         </div>
     </form>
 </div>
-@endsection
+@endsection --}}

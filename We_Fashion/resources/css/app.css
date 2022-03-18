@@ -6,31 +6,32 @@
 li{
     list-style: none;
 }
-/* navbar */
+
+a{
+    text-decoration: none;
+}
+
+/* Dossier menu pour menu.index */
+/* menu.index */
 .menu{
     display: flex;
     background: rgb(146, 146, 146);
     padding: 3em 0;
     justify-content: space-around;
 }
-
 .menu a{
     text-decoration: none;
     color: #000;
 }
-
 .menu a:hover{
     color: rgb(21, 245, 226);
 }
-/* products/index.blade */
+
+/* Dossier products et categories */
+/* mise en forme de products/index.blade */
 .content, .categories{
     display: flex;
     flex-flow: wrap;
-}
-/* pages of products sold femme et homme */
-.pro, .sex{
-    margin: 1rem;
-    padding: 1rem;
 }
 /* products */
 .products{
@@ -40,42 +41,35 @@ li{
 .products:hover{
     color: #000;
 }
+/* categories */
+.pro, .sex{
+    margin: 1rem;
+    padding: 1rem;
+}
 .sex:hover{
     box-shadow: 2px 2px 10px 0px #000;
 }
 .pro:hover{
     box-shadow: 2px 2px 10px 0px #000;
 }
-/* footer */
-.footer{
-    display: flex;
-    background: rgb(146, 146, 146);
-    padding: 2em 0;
-    justify-content: space-around;
-}
 
-.box li:hover{
-    color: rgb(21, 245, 226);
-}
-
-/* mise en form des pages admin */
+/* Dossier menu pour admin_menu */
+/* mise en form de page menu_admin */
 .menu_admin{
     display: flex;
     background: rgb(146, 146, 146);
     padding: 3em 0;
     justify-content: space-around;
 }
-
 .menu_admin a{
     text-decoration: none;
     color: #000;
 }
-
 .menu_admin a:hover{    
     color: rgb(21, 245, 226);
 }
 
-/* le dashboard */
+/* Fichier dashboard */
 .dashboard{
     display: grid;
     grid-template-columns: 1fr;
@@ -83,28 +77,27 @@ li{
     margin-top: 1rem;
     justify-content: space-around;
 }
-
 .dashboard a{
     text-decoration: none;
     color: #000;
 }
-
 .dashboard a:hover{
     color: rgb(21, 245, 226);
 }
 
-/* la page admin.index */
-
+/* Dossier admin */
+/* Mise en forme du fichier index */
 /* mise en forme créer un nouveau produit */
+.admin_index{
+    margin: 2rem 0;
+}
 .admin_index a{
     text-decoration: none;
     color: #000;
 }
-
 .admin_index a:hover{
-    color: rgb(21, 245, 226);
+    text-decoration: underline;
 }
-
 /* mise en forme nom et operation du tableau */
 .name_operations{
     display: flex;
@@ -118,22 +111,35 @@ li{
     grid-gap: 2rem;
     justify-content: space-around;
 }
-
 .admin_modifier a{
     text-decoration: none;
     color: #000;
 }
-
 .admin_modifier a:hover{
     text-decoration: underline;
 }
-
 input.admin_supprimer{
     color: rgb(228, 27, 27);
     margin-left: -4rem;
 }
-
-/* input .admin_supprimer a{
-    padding-top: 0.5rem;
-} */
-
+/* Mise en forme du fichier create */
+.admin_create{
+    color: #000;
+}
+.h1{
+    margin-top: 1rem;
+}
+form.form{
+    display: grid;
+    grid-gap: 1rem;
+}
+/* Dossier footer partie client */
+.footer{
+    display: flex;
+    background: rgb(146, 146, 146);
+    padding: 2em 0;
+    justify-content: space-around;
+}
+.box li:hover{
+    color: rgb(21, 245, 226);
+}

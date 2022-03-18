@@ -79,7 +79,7 @@ class AdminController extends Controller
      */
     public function show(Product $product)
     {
-        return view("admin.show", compact("admin")); 
+        return view("admin.show", ['products' => $product]); 
     }
 
     /**
@@ -90,7 +90,7 @@ class AdminController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('admin.create', ['products'=>$product]);
+        return view("admin.create", ['products' => $product]);
     }
 
     /**

@@ -9,7 +9,7 @@
 {{-- ICI affichez les noms des produits, vérifiez qu'ils existent avant --}}
 {{-- Faire un foreach Laravel pour afficher --}}
     <ul class="pro">
-        <a class="products" href="{{ route('showproduct', $product->id) }}"> {{-- route('/product/product', {{$product->id}}) --}}
+        <a class="products" href="{{ route('showproduct', $product->id) }}">
         <li> {{$product->name}}</li> 
         <li> {{$product->price}}</li> 
         <li> {{$product->description}} </li> 

@@ -1,4 +1,4 @@
-{{-- @extends("layouts.admin")
+@extends("layouts.admin")
 @section("description")
 <span>La page de modification de produits</span>
 @endsection
@@ -7,17 +7,16 @@ Page de modification de produits - We Fashion
 @endsection
 @section("content")
 
-<div>
-    <h1>
+<div class="admin_edit">
+    <h1 class="edit_h1">
             Modifier un nouveau produit
     </h1>
-    <form method="post" action="{{ route('product.product.update', $product->id) }}" enctype="multipart/form-data">
-		<!-- Le token CSRF -->
-		@csrf
-		
+    <form class="form_edit" method="post" action="{{ route('product.product.update', $product->id) }}" enctype="multipart/form-data">
+		 {{-- Le token CSRF  --}}
+		@csrf		
         <div>
             <label for="floatingInput">Entrez le nom du produit</label>
-            <input type="text" class="form-control" id="floatingInput" placeholder="Entrez le nom du produit" name="name">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Entrez le nom du produit" name="name" value="{{ $product->name }}"  />
         </div>
         <div>
             <label for="floatingTextarea2">Entrez la description du produit</label>
@@ -68,4 +67,4 @@ Page de modification de produits - We Fashion
         </div>
     </form>
 </div>
-@endsection --}}
+@endsection

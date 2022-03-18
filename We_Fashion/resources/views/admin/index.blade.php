@@ -4,10 +4,10 @@
 
 	{{-- <h1>Tous les articles</h1> --}}
 	<h5 class="admin_index">
-		<!-- Lien pour créer un nouvel article : "product.product.create" -->
+		{{-- Lien pour créer un nouveau produit : "product.product.create" --}}
 		<a href="{{ route('product.product.create') }}" title="Créer un article" >Créer un nouveau produit</a>
 	</h5>
-	<!-- Le tableau pour lister les produits -->
+	{{-- Le tableau pour lister les produits --}}
 	<table>
 		<thead>
 			<tr class="name_operations">
@@ -16,23 +16,23 @@
 			</tr>
 		</thead>
 		<tbody>
-			<!-- On parcourt la collection de Admin -->
+			{{-- On parcourt la collection de Admin --}}
 			@foreach ($products as $product)
 			<tr class="admin_modifier">
 				<td>
-					<!-- Lien pour afficher un produit : "admin.show" -->
+					{{-- Lien pour afficher un produit : "admin.show" --}}
 					<a href="{{ route('product.product.show', $product) }}" title="Lire l'article" >{{ $product->name }}</a>
 				</td>
 				<td>
-					<!-- Lien pour modifier un produit : "admin.edit" -->
+					{{-- Lien pour modifier un produit : "admin.edit" --}}
 					<a href="{{ route('product.product.edit', $product) }}" title="Modifier l'article" >MODIFIER</a>
 				</td>
 				<td>
-					<!-- Formulaire pour supprimer un produit : "admin.destroy" -->
+					{{-- Formulaire pour supprimer un produit : "admin.destroy" --}}
 					<form method="POST" action="{{ route('product.product.destroy', $product) }}" >
-						<!-- CSRF token -->
+						{{-- CSRF token --}}
 						@csrf
-						<!-- <input type="hidden" name="_method" value="DELETE"> -->
+						{{-- <input type="hidden" name="_method" value="DELETE"> --}}
 						@method("DELETE")
 
 						<input type="submit" value="Supprimer" class="admin_supprimer">

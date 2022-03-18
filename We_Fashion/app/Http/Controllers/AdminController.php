@@ -54,7 +54,7 @@ class AdminController extends Controller
             "etat" => 'required|string|max:255'
         ]);
 
-        $path_image = $request->picture->store("admin"); // a voir
+        // $path_image = $request->picture->store("admin"); // a voir
 
         // 3. On enregistre les informations du produit
         Product::create([
@@ -67,7 +67,7 @@ class AdminController extends Controller
             "etat" => $etat
         ]);
 
-        // 4. On retourne vers tous les produits : route("admin.index")
+        // 4. On retourne a la page index : route("admin.index")
         return redirect(route("admin.index"));
     }
 
@@ -79,7 +79,7 @@ class AdminController extends Controller
      */
     public function show(Product $product)
     {
-        return view("admin.show", ['products' => $product]); 
+        return view("admin.show", ['product' => $product]); 
     }
 
     /**
@@ -90,7 +90,7 @@ class AdminController extends Controller
      */
     public function edit(Product $product)
     {
-        return view("admin.create", ['products' => $product]);
+        return view("admin.edit", ['product' => $product]);
     }
 
     /**

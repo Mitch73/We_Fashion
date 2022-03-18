@@ -17,8 +17,7 @@ class ProductController extends Controller
 
     public function product($id){
         $product = Product::find($id);
-        // dd($product);
-        return view('products.product', ['products' => $product]);
+        return view('products.product', ['product' => $product]);
     }
 
     public function showSex(string $name){

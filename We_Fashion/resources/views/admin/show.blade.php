@@ -4,7 +4,7 @@
 
 	<h1>{{ $product->name }}</h1>
 
-	<img src="{{ asset('') }}" alt="Image de couverture">
+	{{-- <img src="{{ asset('') }}" alt="Image de couverture"> --}}
 
 	<div>{{ $product->description }}</div>
 

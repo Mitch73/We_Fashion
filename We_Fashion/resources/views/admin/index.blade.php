@@ -1,5 +1,5 @@
 @extends("layouts.admin")
-@section("title", "Tous les articles")
+@section("name", "Tous les articles")
 @section("content")
 
 	{{-- <h1>Tous les articles</h1> --}}
@@ -36,7 +36,7 @@
 						@method("DELETE")
 
 						<input type="submit" value="Supprimer" class="admin_supprimer">
-				</form>
+					</form>
 				</td>
 			</tr>
 			@endforeach

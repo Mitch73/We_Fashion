@@ -14,27 +14,27 @@ Page de création de produits - We Fashion
     <h1 class="create_h1">
             Créer un nouveau produit
     </h1>
-    <form class="form" method="post" action="{{ route('product.product.store') }}" enctype="multipart/form-data">
+    <form class="form" method="post" action="{{ route('product.product.store') }}">
         {{-- Le token CSRF --}}
 		@csrf
         <div>
-            <label for="floatingInput">Entrez le nom du produit</label>
+            <label for="product_name">Entrez le nom du produit</label>
             <input type="text" class="form-control" id="floatingInput" placeholder="Entrez le nom du produit" name="name">
         </div>
         <div>
-            <label for="floatingTextarea2">Entrez la description du produit</label>
+            <label for="product_description">Entrez la description du produit</label>
             <textarea class="form-control" placeholder="Entrez la description du produit" id="floatingTextarea2" style="height: 100px" name="description"></textarea>
         </div>
         <div>
-            <label for="floatingPassword">Entrez la référence du produit</label>
+            <label for="product_reference">Entrez la référence du produit</label>
             <input type="text" class="form-control" id="floatingPassword" placeholder="Entrez la référence du produit" name="reference">
         </div>
         <div>
-            <label for="floatingPassword">Entrez le prix du produit</label>
+            <label for="product_price">Entrez le prix du produit</label>
             <input type="number" class="form-control" placeholder="Entrez le prix du produit" name="price">
         </div>
         <div>
-            <label for="floatingSelect">Sélectionnez l'état du produit</label>
+            <label for="product_condition">Sélectionnez l'état du produit</label>
             <select class="form-select" aria-label="Floating label select example" name="condition">
                 <option selected disabled>Sélectionner l'état</option>
                 <option value="sold">Sold</option>
@@ -42,7 +42,7 @@ Page de création de produits - We Fashion
             </select>
         </div>
         <div>
-            <label for="floatingSelect">Sélectionnez la taille du produit</label>
+            <label for="product_size">Sélectionnez la taille du produit</label>
             <select class="form-select" aria-label="Example" name="size">
                 <option selected disabled>Sélectionner la taille</option>
                 <option value="xs">XS</option>
@@ -55,7 +55,7 @@ Page de création de produits - We Fashion
             </select>
         </div>
         <div>
-            <label for="floatingSelect">Sélectionnez la visibilité du produit</label>
+            <label for="product_visibility">Sélectionnez la visibilité du produit</label>
             <select class="form-select" aria-label="Select example" name="visibility">
                 <option selected disabled>Sélectionner la visibilité</option>
                 <option value="publié">publié</option>

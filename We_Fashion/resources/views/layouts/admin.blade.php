@@ -16,7 +16,6 @@
             </nav>          
 
             @yield('content')
-                @include('footer.index')  
         </div>
     </body>
 

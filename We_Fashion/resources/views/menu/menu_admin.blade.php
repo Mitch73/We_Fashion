@@ -7,4 +7,5 @@
     </a>
     <a href="{{ route("sold") }}">
         <span>Boutique</span>
+    </a>
 </div>

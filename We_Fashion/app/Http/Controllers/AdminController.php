@@ -48,8 +48,8 @@ class AdminController extends Controller
             'name' => 'required|string|max:255',
             "picture" => 'required|image|max:1024',
             "description" => 'required',
-            "price" => 'required|float|max:255',
-            "size" => 'required|float|max:255',
+            "price" => 'required|integer|max:255',
+            "size" => 'required|integer|max:255',
             "visibility" => 'required|string|max:255',
             "etat" => 'required|string|max:255'
         ]);
@@ -67,6 +67,7 @@ class AdminController extends Controller
             "etat" => $etat
         ]);
 
+        $product->save();
         // 4. On retourne a la page index : route("admin.index")
         return redirect(route("admin.index"));
     }
@@ -107,19 +108,19 @@ class AdminController extends Controller
         // Les règles de validation pour "name"...
         $rules = [
             'name' => 'required|string|max:255',
-            "picture" => 'required|image|max:1024',
-            "description" => 'required',
-            "price" => 'required|float|max:255',
-            "size" => 'required|float|max:255',
-            "visibility" => 'required|string|max:255',
-            "etat" => 'required|string|max:255'
+            // "picture" => 'required|image|max:1024',
+            // "description" => 'required|string|max:255',
+            // "price" => 'required|integer|max:255',
+            // "size" => 'required|integer|max:255',
+            // "visibility" => 'required|string|max:255',
+            // "etat" => 'required|string|max:255'
         ];
 
         // Si une nouvelle image est envoyée
-        if ($request->has("picture")) {
-            // On ajoute la règle de validation pour "picture"
-            $rules["picture"] = 'required|image|max:1024';
-        }
+        // if ($request->has("picture")) {
+        //     // On ajoute la règle de validation pour "picture"
+        //     $rules["picture"] = 'required|image|max:1024';
+        // }
 
         $this->validate($request, $rules);
 
@@ -136,12 +137,14 @@ class AdminController extends Controller
         $product->update([
             "name" => $request->name,
             // "picture" => isset($path_image) ? $path_image : $product->picture,
-            "description" => $request->content,
-            "price" => $request->price,
-            "size" => $request->size,
-            "visibility" => $request->visibility,
-            "etat" => $etat
+            // "description" => $request->description,
+            // "price" => $request->price,
+            // "size" => $request->size,
+        //     "visibility" => $request->visibility,
+        //     "etat" => $request->etat
         ]);
+
+        $product->save();
 
         // 4. On affiche le produit modifié : route("admin.show")
         return redirect(route("admin.show", $product));

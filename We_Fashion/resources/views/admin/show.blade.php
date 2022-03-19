@@ -1,5 +1,5 @@
 @extends("layouts.admin")
-@section("name", $product->name)
+{{-- @section("name", $product->name) --}}
 @section("content")
 
 	{{-- <img src="{{ asset('') }}" alt="Image de couverture"> --}}
@@ -15,6 +15,6 @@
 		{{ $product->etat }}
 	</div>
 
-	{{-- <p><a href="{{ route('product.product.index') }}" title="Retourner aux articles" >Retourner aux ressources des produits</a></p> --}}
+	<p><a href="{{ route('product.product.index') }}" title="Retourner aux articles" >Retourner aux ressources des produits</a></p>
 
 @endsection

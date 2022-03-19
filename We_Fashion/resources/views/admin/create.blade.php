@@ -10,11 +10,11 @@ Page de création de produits - We Fashion
 
 @section("content")
 
-<div class="admin_create">
+{{-- <div class="admin_create"> --}}
     <h1 class="create_h1">
             Créer un nouveau produit
     </h1>
-    <form class="form" method="post" action="{{ route('product.product.store') }}">
+    <form class="form_create" method="post" action="{{ route('product.product.store') }}">
         {{-- Le token CSRF --}}
 		@csrf
         <div>
@@ -66,8 +66,8 @@ Page de création de produits - We Fashion
         <input type="file" class="form-control">
         
         <div>
-            <button class="btn btn-primary" type="button"><span>Créer le produit</span></button>
+            <input type="submit" class="btn btn-primary" name="valider" value="Valider" >
         </div>
     </form>
-</div>
+{{-- </div> --}}
 @endsection

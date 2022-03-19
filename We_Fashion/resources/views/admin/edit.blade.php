@@ -72,32 +72,32 @@ Page de modification de produits - We Fashion
 {{-- ******************************************************************************************************* --}}
 {{-- ******************************************************************************************************* --}}
 
-<h1>Editer un produit</h1>
+<div>
+    <h1 class="edit_h1">Editer un produit</h1>
 
-	<!-- Si nous avons un Post $post -->
+	{{--Si nous avons un Post $post --}}
 	@if (isset($product))
 
-	<!-- Le formulaire est géré par la route "posts.update" -->
-	<form method="POST" action="{{ route('product.product.update', $product) }}" enctype="multipart/form-data" >
+	{{-- Le formulaire est géré par la route "posts.update" --}}
+	<form class="form_edit" method="POST" action="{{ route('product.product.update', $product) }}" enctype="multipart/form-data" >
 
-		<!-- <input type="hidden" name="_method" value="PUT"> -->
+		{{--<input type="hidden" name="_method" value="PUT"> --}}
 		@method('PUT')
 
 	@else
 
 	<!-- Le formulaire est géré par la route "posts.store" -->
-	<form method="POST" action="{{ route('product.product.store') }}" enctype="multipart/form-data" >
+	<form method="POST" action="{{ route('product.product.store', $product) }}" enctype="multipart/form-data" >
 
 	@endif
 
-		<!-- Le token CSRF -->
+		{{--Le token CSRF --}}
 		@csrf
-        <div>
-			<!-- S'il y a un $post->name, on complète la valeur de l'input -->   
+			{{-- S'il y a un $post->name, on complète la valeur de l'input--}}
             <div>        
-                {{--Le message d'erreur pour "name" --}}
                 <label for="product_name">Entrez le nom du produit</label>
                 <input type="text" class="form-control" placeholder="Entrez le nom du produit" name="name" value="{{ $product->name }}">  
+                {{--Le message d'erreur pour "name" --}}                
                 @error("name")
                 <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -105,9 +105,9 @@ Page de modification de produits - We Fashion
             <div>
                 <label for="product_description">Entrez la description du produit</label>
                 <textarea class="form-control" placeholder="Entrez la description du produit" style="height: 100px" name="description"></textarea>
-                @error("description")
+                {{-- @error("description")
                 <div class="text-danger">{{ $message }}</div>
-                @enderror
+                @enderror --}}
             </div>
             <div>
                 <label for="product_reference">Entrez la référence du produit</label>
@@ -146,9 +146,9 @@ Page de modification de produits - We Fashion
                     <option value="xxl">XXL</option>
                     <option value="xxxl">XXXL</option>
                 </select>
-                @error("size")
+                {{-- @error("size")
                 <div class="text-danger">{{ $message }}</div>
-                @enderror
+                @enderror --}}
             </div>
             <div>
                 <label for="product_visibility">Sélectionnez la visibilité du produit</label>
@@ -161,12 +161,6 @@ Page de modification de produits - We Fashion
                     <div class="text-danger">{{ $message }}</div>
                     @enderror
             </div>
-
-			{{-- <!-- Le message d'erreur pour "content" --> --}}
-			{{-- @error("content")
-			<div>{{ $message }}</div>
-			@enderror --}}
-
 		{{-- <!-- S'il y a une image $post->picture, on l'affiche --> --}}
 		{{-- @if(isset($product->picture))
 		<p>
@@ -178,13 +172,13 @@ Page de modification de produits - We Fashion
 		<div>
         <input type="file" class="form-control" name="picture" id="picture" >
 
-			<!-- Le message d'erreur pour "picture" -->
-			@error("picture")
+			{{-- Le message d'erreur pour "picture" --}}
+			{{-- @error("picture")
 			<div class="text-danger">{{ $message }}</div>
-			@enderror
+			@enderror --}}
         </div>
 
 		<input type="submit" class="btn btn-primary" name="valider" value="Valider" >
-    </div>
 	</form>
+</div>
 @endsection

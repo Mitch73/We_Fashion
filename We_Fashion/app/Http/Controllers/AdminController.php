@@ -124,18 +124,18 @@ class AdminController extends Controller
         $this->validate($request, $rules);
 
         // 2. On upload l'image dans "/storage/app/public/posts"
-        if ($request->has("picture")) {
+        // if ($request->has("picture")) {
 
-            //On supprime l'ancienne image
-            // Storage::delete($product->picture);
+        //     //On supprime l'ancienne image
+        //     // Storage::delete($product->picture);
 
-            $path_image = $request->picture->store("admin");
-        }
+        //     // $path_image = $request->picture->store("admin");
+        // }
 
         // 3. On met à jour les informations du Produit
         $product->update([
             "name" => $request->name,
-            "picture" => isset($path_image) ? $path_image : $product->picture,
+            // "picture" => isset($path_image) ? $path_image : $product->picture,
             "description" => $request->content,
             "price" => $request->price,
             "size" => $request->size,

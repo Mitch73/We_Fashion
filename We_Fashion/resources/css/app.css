@@ -132,6 +132,10 @@ form.form_create, form.form_edit{
 }
 .admin_show{
     display: block;
+    margin-top: 1rem;
+}
+.show_h6{
+    margin-left: 2rem;
 }
 /* Dossier footer partie client */
 .footer{

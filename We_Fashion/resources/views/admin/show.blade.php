@@ -5,7 +5,7 @@
 	{{-- <img src="{{ asset('') }}" alt="Image de couverture"> --}}
 
 	<div class="admin_show">
-		<h6>{{ $product->name }}</h6>
+		<h6 class="show_h6">{{ $product->name }}</h6>
 
 		<ul>
 			<li>{{ $product->reference}}</li>

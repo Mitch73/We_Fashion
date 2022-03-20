@@ -10204,6 +10204,9 @@ select {
     grid-gap: 1rem;
 }.admin_show{
     display: block;
+    margin-top: 1rem;
+}.show_h6{
+    margin-left: 2rem;
 }/* Dossier footer partie client */.footer{
     display: flex;
     background: rgb(146, 146, 146);

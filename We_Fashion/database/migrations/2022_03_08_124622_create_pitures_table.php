@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->string('link', 100);
-            $table->string('title', 100)->nullable();
+            $table->string('name', 100)->nullable();
             //SI ON SUPRIMME UN BOOK ALORS on suprimme les images associées
             // $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade'); 
             $table->timestamps();

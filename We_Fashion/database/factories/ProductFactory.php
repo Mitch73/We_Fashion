@@ -22,7 +22,7 @@ class ProductFactory extends Factory
             'description' => $this->faker->sentence(),
             'size' => $this->faker->randomElement($array = array ('XS','S', 'M', 'L', 'XL', 'XXL', 'XXXL')),
             'visibility' => $this->faker->randomElement($array = array ('publié','non publié')),
-            'etat' => $this->faker->randomElement($array = array ('','sold')),
+            'etat' => $this->faker->randomElement($array = array ('standard','sold')),
             'reference' => $this->faker->regexify('[A-Z0-9]+@[A-Z0-9]+\.[A-Z]{2,4}')
         ];
     }

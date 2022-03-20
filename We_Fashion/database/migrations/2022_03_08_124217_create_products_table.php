@@ -19,8 +19,8 @@ return new class extends Migration
             $table->text('description')->nullable(); // TEXT NULL
             $table->string('size');
             $table->string('visibility');
-            $table->string('etat');
-            $table->text('reference');
+            $table->string('etat',)->default('standard');
+            $table->text('reference')->nullable();
             $table->decimal('price', 5, 2)->nullable();
             $table->timestamps();
         });

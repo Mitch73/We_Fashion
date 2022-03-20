@@ -44,32 +44,34 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         // 1. La validation
-        $this->validate($request, [
-            'name' => 'required|string|max:255',
-            "picture" => 'required|image|max:1024',
-            "description" => 'required',
-            "price" => 'required|integer|max:255',
-            "size" => 'required|integer|max:255',
-            "visibility" => 'required|string|max:255',
-            "etat" => 'required|string|max:255'
-        ]);
+        // $this->validate($request, [
+        //     'name' => 'required|string|max:255',
+        //     "picture" => 'required|image|max:1024',
+        //     "description" => 'required',
+        //     "price" => 'required|integer|max:255',
+        //     "size" => 'required|integer|max:255',
+        //     "visibility" => 'required|string|max:255',
+        //     "etat" => 'required|string|max:255'
+        // ]);
 
         // $path_image = $request->picture->store("admin"); // a voir
 
         // 3. On enregistre les informations du produit
-        Product::create([
-            "name" => $request->name,
-            "picture" => $path_image,
-            "description" => $request->description,
-            "price" => $request->price,
-            "size" => $request->size,
-            "visibility" => $request->visibility,
-            "etat" => $etat
-        ]);
+        // Product::create([
+        //     "name" => $request->name,
+        //     "picture" => $path_image,
+        //     "description" => $request->description,
+        //     "price" => $request->price,
+        //     "size" => $request->size,
+        //     "visibility" => $request->visibility,
+        //     "etat" => $etat
+        // ]);
+
+        $product= Product::create($request->all());
 
         $product->save();
         // 4. On retourne a la page index : route("admin.index")
-        return redirect(route("admin.index"));
+        return redirect(route("product.product.index", $product));
     }
 
     /**
@@ -106,15 +108,16 @@ class AdminController extends Controller
         // 1. La validation
 
         // Les règles de validation pour "name"...
-        $rules = [
-            'name' => 'required|string|max:255',
+        // $rules = [
+            // 'name' => 'required|string|max:255',
             // "picture" => 'required|image|max:1024',
+            // "reference" => 'regex:/^.+$/i',
             // "description" => 'required|string|max:255',
-            // "price" => 'required|integer|max:255',
-            // "size" => 'required|integer|max:255',
+            // "price" => 'required|regex:^[1-9 ].$',
+            // "size" => 'required|regex:^[A-Z ].$',
             // "visibility" => 'required|string|max:255',
             // "etat" => 'required|string|max:255'
-        ];
+        // ];
 
         // Si une nouvelle image est envoyée
         // if ($request->has("picture")) {
@@ -122,7 +125,7 @@ class AdminController extends Controller
         //     $rules["picture"] = 'required|image|max:1024';
         // }
 
-        $this->validate($request, $rules);
+        // $this->validate($request, $rules);
 
         // 2. On upload l'image dans "/storage/app/public/posts"
         // if ($request->has("picture")) {
@@ -134,20 +137,22 @@ class AdminController extends Controller
         // }
 
         // 3. On met à jour les informations du Produit
-        $product->update([
-            "name" => $request->name,
-            // "picture" => isset($path_image) ? $path_image : $product->picture,
-            // "description" => $request->description,
-            // "price" => $request->price,
-            // "size" => $request->size,
-        //     "visibility" => $request->visibility,
-        //     "etat" => $request->etat
-        ]);
-
+        // $product->update([
+        //     "name" => $request->name,
+        //     // "picture" => isset($path_image) ? $path_image : $product->picture,
+        //     "reference" => $request->reference,
+        //     "description" => $request->description,
+        //     // "price" => $request->price,
+        //     "size" => $request->size,
+        //     // "visibility" => $request->visibility,
+        //     // "etat" => $request->etat
+        // ]);
+        // dd($product);
+        $product->update($request->all());
         $product->save();
 
         // 4. On affiche le produit modifié : route("admin.show")
-        return redirect(route("admin.show", $product));
+        return redirect(route('product.product.show', $product));
 
     }
 
@@ -164,9 +169,9 @@ class AdminController extends Controller
         
         // On supprime les informations du $produit de la table "admin"
         $product->delete();
-
+// dd($product);
         // Redirection route "admin.index"
-        return redirect(route('admin.index'));
+        return redirect(route('product.product.index'))->with($product->name, 'A été supprimé !');
     }
 }
 

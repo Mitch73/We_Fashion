@@ -10197,12 +10197,13 @@ select {
 }input.admin_supprimer{
     color: rgb(228, 27, 27);
     margin-left: -4rem;
-}/* Mise en forme du fichier create et
- Mise en forme du fichier edit */.create_h1, .edit_h1{
+}/* Mise en forme du fichier create, edit et show */.create_h1, .edit_h1{
     margin-top: 1rem;
 }form.form_create, form.form_edit{
     display: grid;
     grid-gap: 1rem;
+}.admin_show{
+    display: block;
 }/* Dossier footer partie client */.footer{
     display: flex;
     background: rgb(146, 146, 146);
